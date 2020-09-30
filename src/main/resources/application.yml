@@ -1,0 +1,50 @@
+# web 服务器相关配置
+server:
+  port: 9010
+  servlet:
+    context-path: /ms-music-file-server
+# web 应用相关配置
+spring:
+  application:
+    name: mystyle-musice-fileserver
+  profiles:
+    active: prod
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #      filters:stat
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      async-init: true
+      validation-query: select 1
+  #      web-stat-filter:
+  #        enabled: true
+  #        profile-enable: true
+  #      stat-view-servlet:
+  #        enabled: true
+  #        url-pattern: /druid/*
+  #        login-username: mystyle-music
+  #        login-password: mystyle-musice123456
+  #        reset-enable: false
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false

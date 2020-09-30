@@ -1,0 +1,1 @@
+package com.ms.music.file.server.file_info.repository;import com.ms.music.file.server.file_info.entity.FileInfo;import org.springframework.data.jpa.repository.JpaRepository;import org.springframework.stereotype.Repository;@Repositorypublic interface FileInfoRepository extends JpaRepository<FileInfo, String> {}
